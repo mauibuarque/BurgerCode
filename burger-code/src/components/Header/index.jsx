@@ -2,7 +2,7 @@ import style from "./style.module.scss";
 
 import cartImg from "../../assets/cart.svg";
 
-const Header = () => {
+const Header = ({ cartSize }) => {
   return (
     <>
       <header className={style.header}>
@@ -12,7 +12,7 @@ const Header = () => {
           </h1>
           <div>
             <img src={cartImg} alt="Carrinho" />
-            <span>5</span>
+            <span>{cartSize}</span>
           </div>
         </section>
       </header>

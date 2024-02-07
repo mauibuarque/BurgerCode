@@ -24,7 +24,7 @@ const Dashboard = () => {
       <section className="container">
         <ul className={style.productsList}>
           {products.map((product) => (
-            <ProductCard key={product.name} product={product} />
+            <ProductCard key={product.id} product={product} />
           ))}
         </ul>
       </section>

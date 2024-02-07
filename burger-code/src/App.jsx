@@ -1,15 +1,11 @@
 import "./styles/index.scss";
 
-import Header from "./components/Header";
-import Dashboard from "./components/Dashboard";
-import Cart from "./components/Cart";
+import HomePage from "./components/HomePage";
 
 const App = () => {
   return (
     <>
-      <Header />
-      <Dashboard />
-      <Cart />
+      <HomePage />
     </>
   );
 };

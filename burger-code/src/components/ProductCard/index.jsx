@@ -1,7 +1,7 @@
 import style from "./style.module.scss";
 
 const ProductCard = ({ product }) => {
-  const { name, img, category, price } = product;
+  const { id, name, img, category, price } = product;
 
   const formatPrice = (price) => {
     const options = { style: "currency", currency: "BRL" };
@@ -11,7 +11,7 @@ const ProductCard = ({ product }) => {
 
   return (
     <>
-      <li key={name} className={style.card}>
+      <li key={id} className={style.card}>
         <img src={img} alt={`Foto ${name}`} />
         <section className="fontPrimary">
           <div>
