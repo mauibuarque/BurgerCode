@@ -1,6 +1,10 @@
+import style from "./style.module.scss";
+
 import { useEffect, useState } from "react";
 
 import burgerAPI from "../../services/api";
+
+import ProductCard from "../ProductCard";
 
 const Dashboard = () => {
   const [products, setProducts] = useState([]);
@@ -17,16 +21,13 @@ const Dashboard = () => {
 
   return (
     <>
-      <ul>
-        {products.map(({ name, category, price, img }) => (
-          <li key={name}>
-            <img src={img} alt={`Foto ${name}`} />
-            <h1>{name}</h1>
-            <span>{category}</span>
-            <span>{price}</span>
-          </li>
-        ))}
-      </ul>
+      <section className="container">
+        <ul className={style.productsList}>
+          {products.map((product) => (
+            <ProductCard key={product.name} product={product} />
+          ))}
+        </ul>
+      </section>
     </>
   );
 };

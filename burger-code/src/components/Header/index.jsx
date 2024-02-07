@@ -5,17 +5,17 @@ import cartImg from "../../assets/cart.svg";
 const Header = () => {
   return (
     <>
-      <div className="container">
-        <header className={style.header}>
-          <h1 className="fontPrimary bold">
+      <header className={style.header}>
+        <section className="container fontPrimary">
+          <h1 className="bold">
             Burguer<span>Code</span>
           </h1>
           <div>
             <img src={cartImg} alt="Carrinho" />
-            <span>0</span>
+            <span>5</span>
           </div>
-        </header>
-      </div>
+        </section>
+      </header>
     </>
   );
 };

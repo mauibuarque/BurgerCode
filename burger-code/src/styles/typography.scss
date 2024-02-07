@@ -3,15 +3,15 @@
 .fontPrimary {
   font-family: "Inter", sans-serif;
 
-  &.bold {
+  & .bold {
     font-weight: 700;
   }
 
-  &.semibold {
+  & .semibold {
     font-weight: 600;
   }
 
-  &.regular {
+  & .regular {
     font-weight: 400;
   }
 }
