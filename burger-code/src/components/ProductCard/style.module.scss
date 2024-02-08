@@ -5,42 +5,42 @@
   border: 0.2rem solid var(--grey-100);
   border-radius: 0.2rem;
 
-  & img {
+  img {
     height: 11.25rem;
 
     background-color: var(--grey-0);
   }
 
-  & section {
+  .cardContent {
     display: flex;
     flex-direction: column;
     gap: 1rem;
 
     padding: 1.2rem;
 
-    & div {
+    .cardTitlePrice {
       display: flex;
       justify-content: space-between;
       align-items: center;
 
-      & h1 {
+      h1 {
         font-size: 1.125rem;
       }
 
-      & span {
+      span {
         font-size: 1rem;
 
         color: var(--color-primary);
       }
     }
 
-    & p {
+    .category {
       font-size: 0.875rem;
 
       color: var(--grey-300);
     }
 
-    & button {
+    button {
       background-color: var(--color-primary);
       color: var(--white);
 
