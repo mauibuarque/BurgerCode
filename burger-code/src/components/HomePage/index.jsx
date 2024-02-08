@@ -16,8 +16,13 @@ const HomePage = () => {
         modalCart={modalCart}
         setModalCart={setModalCart}
       />
-      <Dashboard />
-      {modalCart ? <Cart /> : null}
+      <Dashboard
+        cart={cart}
+        setCart={setCart}
+        cartSize={cartSize}
+        setCartSize={setCartSize}
+      />
+      {modalCart ? <Cart cart={cart} /> : null}
     </>
   );
 };

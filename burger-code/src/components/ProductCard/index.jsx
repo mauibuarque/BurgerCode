@@ -1,7 +1,14 @@
 import style from "./style.module.scss";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, cart, setCart, cartSize, setCartSize }) => {
   const { id, name, img, category, price } = product;
+
+  const addProductToCart = () => {
+    if (!cart.includes((cartProduct) => cartProduct.id === id)) {
+      setCart([...cart, product]);
+      setCartSize(cartSize + 1);
+    }
+  };
 
   const formatPrice = (price) => {
     const options = { style: "currency", currency: "BRL" };
@@ -19,7 +26,14 @@ const ProductCard = ({ product }) => {
             <span className="semibold">{formatPrice(price)}</span>
           </div>
           <p className={`${style.category} regular`}>{category}</p>
-          <button className="button semibold">Adicionar</button>
+          <button
+            onClick={() => {
+              addProductToCart();
+            }}
+            className="button semibold"
+          >
+            Adicionar
+          </button>
         </div>
       </li>
     </>

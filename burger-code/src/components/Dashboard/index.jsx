@@ -6,7 +6,7 @@ import burgerAPI from "../../services/api";
 
 import ProductCard from "../ProductCard";
 
-const Dashboard = () => {
+const Dashboard = ({ cart, setCart, cartSize, setCartSize }) => {
   const [products, setProducts] = useState([]);
 
   const getProducts = async () => {
@@ -24,7 +24,14 @@ const Dashboard = () => {
       <section className="container">
         <ul className={style.productsList}>
           {products.map((product) => (
-            <ProductCard key={product.id} product={product} />
+            <ProductCard
+              key={product.id}
+              product={product}
+              cart={cart}
+              setCart={setCart}
+              cartSize={cartSize}
+              setCartSize={setCartSize}
+            />
           ))}
         </ul>
       </section>
