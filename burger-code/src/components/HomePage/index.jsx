@@ -22,7 +22,14 @@ const HomePage = () => {
         cartSize={cartSize}
         setCartSize={setCartSize}
       />
-      {modalCart ? <Cart cart={cart} /> : null}
+      {modalCart ? (
+        <Cart
+          cart={cart}
+          setCart={setCart}
+          cartSize={cartSize}
+          setCartSize={setCartSize}
+        />
+      ) : null}
     </>
   );
 };

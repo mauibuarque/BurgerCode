@@ -1,19 +1,19 @@
-const Cart = ({ cart }) => {
+import CartProduct from "../CartProduct";
+
+const Cart = ({ cart, setCart, cartSize, setCartSize }) => {
   return (
     <>
       <h1>CARRINHO</h1>
       <ul>
-        {cart.map(({ id, img, name, price, category }) => (
-          <li key={id}>
-            <img src={img} alt={`Foto ${name}`} />
-            <div>
-              <div>
-                <h1>{name}</h1>
-                <span>{price}</span>
-              </div>
-              <p>{category}</p>
-            </div>
-          </li>
+        {cart.map((cartProduct) => (
+          <CartProduct
+            key={cartProduct.id}
+            cartProduct={cartProduct}
+            cart={cart}
+            setCart={setCart}
+            cartSize={cartSize}
+            setCartSize={setCartSize}
+          />
         ))}
       </ul>
     </>
