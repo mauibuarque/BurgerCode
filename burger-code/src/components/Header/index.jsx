@@ -6,15 +6,15 @@ const Header = ({ cartSize }) => {
   return (
     <>
       <header className={style.header}>
-        <section className="container fontPrimary">
-          <h1 className="bold">
+        <div className={`${style.headerContent} container`}>
+          <h1 className={`${style.title} bold`}>
             Burguer<span>Code</span>
           </h1>
-          <div>
+          <div className={style.cart}>
             <img src={cartImg} alt="Carrinho" />
             <span>{cartSize}</span>
           </div>
-        </section>
+        </div>
       </header>
     </>
   );
