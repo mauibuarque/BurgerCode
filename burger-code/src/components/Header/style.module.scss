@@ -21,6 +21,10 @@
   .cart {
     position: relative;
 
+    img {
+      cursor: pointer;
+    }
+
     span {
       display: flex;
       justify-content: center;
