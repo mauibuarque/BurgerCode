@@ -68,7 +68,7 @@ const Cart = ({
                 </div>
               </>
             ) : (
-              <div className={style.noProducts}>
+              <div className={style.noCartProducts}>
                 <p className="semibold">
                   Você ainda não adicionou itens ao carrinho
                 </p>
