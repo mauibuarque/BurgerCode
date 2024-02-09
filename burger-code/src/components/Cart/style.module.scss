@@ -16,6 +16,7 @@
   background-color: var(--white);
 
   width: 100%;
+  min-height: 10rem;
 
   border-radius: 0.5rem;
 
@@ -84,5 +85,15 @@
         font-size: 0.875rem;
       }
     }
+  }
+
+  .noProducts {
+    padding-top: 2rem;
+
+    text-align: center;
+
+    line-height: 1.3rem;
+
+    color: var(--grey-300);
   }
 }

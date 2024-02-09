@@ -39,31 +39,41 @@ const Cart = ({
             </button>
           </div>
           <div className={style.cartContent}>
-            <ul className={style.cartList}>
-              {cart.map((cartProduct) => (
-                <CartProduct
-                  key={cartProduct.id}
-                  cartProduct={cartProduct}
-                  cart={cart}
-                  setCart={setCart}
-                  cartSize={cartSize}
-                  setCartSize={setCartSize}
-                  formatPrice={formatPrice}
-                />
-              ))}
-            </ul>
-            <div className={style.cartFooter}>
-              <div className={style.cartTotalValue}>
-                <p>Total</p>
-                <span>{formatPrice(cartTotal())}</span>
+            {cartSize > 0 ? (
+              <>
+                <ul className={style.cartList}>
+                  {cart.map((cartProduct) => (
+                    <CartProduct
+                      key={cartProduct.id}
+                      cartProduct={cartProduct}
+                      cart={cart}
+                      setCart={setCart}
+                      cartSize={cartSize}
+                      setCartSize={setCartSize}
+                      formatPrice={formatPrice}
+                    />
+                  ))}
+                </ul>
+                <div className={style.cartFooter}>
+                  <div className={style.cartTotalValue}>
+                    <p>Total</p>
+                    <span>{formatPrice(cartTotal())}</span>
+                  </div>
+                  <button
+                    onClick={() => removeAllCart()}
+                    className={`${style.removeAllCartButton} button bold`}
+                  >
+                    Remover todos
+                  </button>
+                </div>
+              </>
+            ) : (
+              <div className={style.noProducts}>
+                <p className="semibold">
+                  Você ainda não adicionou itens ao carrinho
+                </p>
               </div>
-              <button
-                onClick={() => removeAllCart()}
-                className={`${style.removeAllCartButton} button bold`}
-              >
-                Remover todos
-              </button>
-            </div>
+            )}
           </div>
         </div>
       </div>
