@@ -9,6 +9,12 @@ const HomePage = () => {
   const [cart, setCart] = useState([]);
   const [cartSize, setCartSize] = useState(0);
 
+  const formatPrice = (price) => {
+    const options = { style: "currency", currency: "BRL" };
+
+    return price.toLocaleString(price, options);
+  };
+
   return (
     <>
       <Header
@@ -21,6 +27,7 @@ const HomePage = () => {
         setCart={setCart}
         cartSize={cartSize}
         setCartSize={setCartSize}
+        formatPrice={formatPrice}
       />
       {modalCart ? (
         <Cart
@@ -28,6 +35,7 @@ const HomePage = () => {
           setCart={setCart}
           cartSize={cartSize}
           setCartSize={setCartSize}
+          formatPrice={formatPrice}
         />
       ) : null}
     </>

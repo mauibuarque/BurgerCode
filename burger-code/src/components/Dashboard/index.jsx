@@ -6,7 +6,7 @@ import burgerAPI from "../../services/api";
 
 import ProductCard from "../ProductCard";
 
-const Dashboard = ({ cart, setCart, cartSize, setCartSize }) => {
+const Dashboard = ({ cart, setCart, cartSize, setCartSize, formatPrice }) => {
   const [products, setProducts] = useState([]);
 
   const getProducts = async () => {
@@ -31,6 +31,7 @@ const Dashboard = ({ cart, setCart, cartSize, setCartSize }) => {
               setCart={setCart}
               cartSize={cartSize}
               setCartSize={setCartSize}
+              formatPrice={formatPrice}
             />
           ))}
         </ul>

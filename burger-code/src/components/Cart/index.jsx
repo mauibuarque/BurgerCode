@@ -1,9 +1,24 @@
 import CartProduct from "../CartProduct";
 
-const Cart = ({ cart, setCart, cartSize, setCartSize }) => {
+import closeImg from "../../assets/close.svg";
+
+const Cart = ({ cart, setCart, cartSize, setCartSize, formatPrice }) => {
+  const cartTotal = () => {
+    return cart.reduce((prev, curr) => prev + curr.price, 0);
+  };
+
+  const removeAllCart = () => {
+    setCart([]);
+  };
+
   return (
     <>
-      <h1>CARRINHO</h1>
+      <div>
+        <h1>Carrinho de compras</h1>
+        <button>
+          <img src={closeImg} alt="Fechar carrinho" />
+        </button>
+      </div>
       <ul>
         {cart.map((cartProduct) => (
           <CartProduct
@@ -13,9 +28,15 @@ const Cart = ({ cart, setCart, cartSize, setCartSize }) => {
             setCart={setCart}
             cartSize={cartSize}
             setCartSize={setCartSize}
+            formatPrice={formatPrice}
           />
         ))}
       </ul>
+      <div>
+        <p>Total</p>
+        <span>{formatPrice(cartTotal())}</span>
+      </div>
+      <button onClick={() => removeAllCart()}>Remover todos</button>
     </>
   );
 };

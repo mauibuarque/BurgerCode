@@ -1,19 +1,22 @@
 import style from "./style.module.scss";
 
-const ProductCard = ({ product, cart, setCart, cartSize, setCartSize }) => {
+const ProductCard = ({
+  product,
+  cart,
+  setCart,
+  cartSize,
+  setCartSize,
+  formatPrice,
+}) => {
   const { id, name, img, category, price } = product;
 
   const addProductToCart = () => {
-    if (!cart.includes((cartProduct) => cartProduct.id === id)) {
+    const cartFilter = cart.filter((cartProduct) => cartProduct.id === id);
+
+    if (cartFilter.length === 0) {
       setCart([...cart, product]);
       setCartSize(cartSize + 1);
     }
-  };
-
-  const formatPrice = (price) => {
-    const options = { style: "currency", currency: "BRL" };
-
-    return price.toLocaleString(price, options);
   };
 
   return (
@@ -27,9 +30,7 @@ const ProductCard = ({ product, cart, setCart, cartSize, setCartSize }) => {
           </div>
           <p className={`${style.category} regular`}>{category}</p>
           <button
-            onClick={() => {
-              addProductToCart();
-            }}
+            onClick={() => addProductToCart()}
             className="button semibold"
           >
             Adicionar

@@ -1,6 +1,13 @@
 import trashImg from "../../assets/trash.svg";
 
-const CartProduct = ({ cartProduct, cart, setCart, cartSize, setCartSize }) => {
+const CartProduct = ({
+  cartProduct,
+  cart,
+  setCart,
+  cartSize,
+  setCartSize,
+  formatPrice,
+}) => {
   const { id, img, name, price, category } = cartProduct;
 
   const removeCartProduct = (id) => {
@@ -17,7 +24,7 @@ const CartProduct = ({ cartProduct, cart, setCart, cartSize, setCartSize }) => {
         <div>
           <div>
             <h1>{name}</h1>
-            <span>{price}</span>
+            <span>{formatPrice(price)}</span>
           </div>
           <p>{category}</p>
         </div>
