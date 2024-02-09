@@ -20,26 +20,24 @@ const ProductCard = ({
   };
 
   return (
-    <>
-      <li key={id} className={style.productCard}>
-        <div className={style.productCardImgContainer}>
-          <img src={img} alt={`Foto ${name}`} />
+    <li key={id} className={style.productCard}>
+      <div className={style.productCardImgContainer}>
+        <img src={img} alt={`Foto ${name}`} />
+      </div>
+      <div className={style.cardContent}>
+        <div className={style.cardTitlePrice}>
+          <h1 className="bold">{name}</h1>
+          <span className="semibold">{formatPrice(price)}</span>
         </div>
-        <div className={style.cardContent}>
-          <div className={style.cardTitlePrice}>
-            <h1 className="bold">{name}</h1>
-            <span className="semibold">{formatPrice(price)}</span>
-          </div>
-          <p className={`${style.category} regular`}>{category}</p>
-          <button
-            onClick={() => addProductToCart()}
-            className={`${style.addToCartButton} button semibold`}
-          >
-            Adicionar
-          </button>
-        </div>
-      </li>
-    </>
+        <p className={`${style.category} regular`}>{category}</p>
+        <button
+          onClick={() => addProductToCart()}
+          className={`${style.addToCartButton} button semibold`}
+        >
+          Adicionar
+        </button>
+      </div>
+    </li>
   );
 };
 
