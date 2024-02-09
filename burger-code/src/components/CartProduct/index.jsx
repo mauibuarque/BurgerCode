@@ -23,11 +23,7 @@ const CartProduct = ({
     <>
       <li key={id} className={style.cartProductCard}>
         <div className={style.cartProductImgContainer}>
-          <img
-            src={img}
-            alt={`Foto ${name}`}
-            className={style.cartProductImg}
-          />
+          <img src={img} alt={`Foto ${name}`} />
         </div>
         <div className={style.cartProductContent}>
           <div className={style.cartProductHeader}>
@@ -36,7 +32,7 @@ const CartProduct = ({
               onClick={() => {
                 removeCartProduct(id);
               }}
-              className={style.removeCartProductButton}
+              className={`${style.removeCartProductButton} button`}
             >
               <img src={trashImg} alt="Deletar produto do carrinho" />
             </button>

@@ -10,11 +10,11 @@
     justify-content: center;
 
     background-color: var(--grey-100);
-  }
 
-  .cartProductImg {
-    width: 5rem;
-    height: 5rem;
+    img {
+      width: 5rem;
+      height: 5rem;
+    }
   }
 
   .cartProductContent {

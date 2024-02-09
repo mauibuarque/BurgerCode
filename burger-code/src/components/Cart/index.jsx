@@ -23,6 +23,7 @@ const Cart = ({
 
   const removeAllCart = () => {
     setCart([]);
+    setCartSize(0);
   };
 
   return (

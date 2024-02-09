@@ -22,7 +22,9 @@ const ProductCard = ({
   return (
     <>
       <li key={id} className={style.productCard}>
-        <img src={img} alt={`Foto ${name}`} />
+        <div className={style.productCardImgContainer}>
+          <img src={img} alt={`Foto ${name}`} />
+        </div>
         <div className={style.cardContent}>
           <div className={style.cardTitlePrice}>
             <h1 className="bold">{name}</h1>
