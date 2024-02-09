@@ -21,7 +21,7 @@ const ProductCard = ({
 
   return (
     <>
-      <li key={id} className={style.card}>
+      <li key={id} className={style.productCard}>
         <img src={img} alt={`Foto ${name}`} />
         <div className={style.cardContent}>
           <div className={style.cardTitlePrice}>

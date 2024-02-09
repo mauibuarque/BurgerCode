@@ -1,3 +1,5 @@
+import style from "./style.module.scss";
+
 import trashImg from "../../assets/trash.svg";
 
 const CartProduct = ({
@@ -8,7 +10,7 @@ const CartProduct = ({
   setCartSize,
   formatPrice,
 }) => {
-  const { id, img, name, price, category } = cartProduct;
+  const { id, img, name, price } = cartProduct;
 
   const removeCartProduct = (id) => {
     const newCart = cart.filter((cartProduct) => cartProduct.id !== id);
@@ -19,22 +21,28 @@ const CartProduct = ({
 
   return (
     <>
-      <li key={id}>
-        <img src={img} alt={`Foto ${name}`} />
-        <div>
-          <div>
-            <h1>{name}</h1>
-            <span>{formatPrice(price)}</span>
-          </div>
-          <p>{category}</p>
+      <li key={id} className={style.cartProductCard}>
+        <div className={style.cartProductImgContainer}>
+          <img
+            src={img}
+            alt={`Foto ${name}`}
+            className={style.cartProductImg}
+          />
         </div>
-        <button
-          onClick={() => {
-            removeCartProduct(id);
-          }}
-        >
-          <img src={trashImg} alt="Deletar produto do carrinho" />
-        </button>
+        <div className={style.cartProductContent}>
+          <div className={style.cartProductHeader}>
+            <h1 className={`${style.cartProductTitle} bold`}>{name}</h1>
+            <button
+              onClick={() => {
+                removeCartProduct(id);
+              }}
+              className={style.removeCartProductButton}
+            >
+              <img src={trashImg} alt="Deletar produto do carrinho" />
+            </button>
+          </div>
+          <span className={style.cartProductPrice}>{formatPrice(price)}</span>
+        </div>
       </li>
     </>
   );

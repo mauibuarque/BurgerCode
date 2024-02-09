@@ -1,0 +1,54 @@
+.cartProductCard {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  margin: 1.5rem 0 1.5rem 0;
+
+  .cartProductImgContainer {
+    display: flex;
+    justify-content: center;
+
+    background-color: var(--grey-100);
+  }
+
+  .cartProductImg {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .cartProductContent {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    width: 100%;
+
+    .cartProductHeader {
+      display: flex;
+      justify-content: space-between;
+
+      .cartProductTitle {
+        font-size: 1.125rem;
+      }
+
+      .removeCartProductButton {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 1.2rem;
+
+        background-color: var(--white);
+
+        border: none;
+      }
+    }
+  }
+
+  .cartProductPrice {
+    color: var(--color-primary);
+
+    font-size: 0.875rem;
+  }
+}
