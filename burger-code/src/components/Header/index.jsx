@@ -3,8 +3,8 @@ import style from "./style.module.scss";
 import cartImg from "../../assets/cart.svg";
 
 const Header = ({ cartSize, modalCart, setModalCart }) => {
-  const cartModal = () => {
-    modalCart ? setModalCart(false) : setModalCart(true);
+  const openCartModal = () => {
+    setModalCart(!modalCart);
   };
 
   return (
@@ -15,8 +15,14 @@ const Header = ({ cartSize, modalCart, setModalCart }) => {
             Burguer<span>Code</span>
           </h1>
           <div className={style.cart}>
-            <img onClick={() => cartModal()} src={cartImg} alt="Carrinho" />
-            <span>{cartSize}</span>
+            <button className={`${style.cartButton} button`}>
+              <img
+                onClick={() => openCartModal()}
+                src={cartImg}
+                alt="Carrinho"
+              />
+            </button>
+            <span className={style.cartSizeValue}>{cartSize}</span>
           </div>
         </div>
       </header>

@@ -31,6 +31,8 @@ const HomePage = () => {
       />
       {modalCart ? (
         <Cart
+          modalCart={modalCart}
+          setModalCart={setModalCart}
           cart={cart}
           setCart={setCart}
           cartSize={cartSize}

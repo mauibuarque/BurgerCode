@@ -31,7 +31,7 @@ const ProductCard = ({
           <p className={`${style.category} regular`}>{category}</p>
           <button
             onClick={() => addProductToCart()}
-            className="button semibold"
+            className={`${style.addToCartButton} button semibold`}
           >
             Adicionar
           </button>

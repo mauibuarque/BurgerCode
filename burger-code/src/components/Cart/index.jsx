@@ -1,8 +1,22 @@
+import style from "./style.module.scss";
+
 import CartProduct from "../CartProduct";
 
 import closeImg from "../../assets/close.svg";
 
-const Cart = ({ cart, setCart, cartSize, setCartSize, formatPrice }) => {
+const Cart = ({
+  modalCart,
+  setModalCart,
+  cart,
+  setCart,
+  cartSize,
+  setCartSize,
+  formatPrice,
+}) => {
+  const closeCartModal = () => {
+    setModalCart(!modalCart);
+  };
+
   const cartTotal = () => {
     return cart.reduce((prev, curr) => prev + curr.price, 0);
   };
@@ -13,30 +27,46 @@ const Cart = ({ cart, setCart, cartSize, setCartSize, formatPrice }) => {
 
   return (
     <>
-      <div>
-        <h1>Carrinho de compras</h1>
-        <button>
-          <img src={closeImg} alt="Fechar carrinho" />
-        </button>
+      <div className={`${style.overlayCartModal} container`}>
+        <div className={style.cartModal}>
+          <div className={style.cartHeader}>
+            <h1 className="bold">Carrinho de compras</h1>
+            <button
+              onClick={() => closeCartModal()}
+              className={`${style.closeModalButton} button`}
+            >
+              <img src={closeImg} alt="Fechar carrinho" />
+            </button>
+          </div>
+          <div className={style.cartContent}>
+            <ul className={style.cartList}>
+              {cart.map((cartProduct) => (
+                <CartProduct
+                  key={cartProduct.id}
+                  cartProduct={cartProduct}
+                  cart={cart}
+                  setCart={setCart}
+                  cartSize={cartSize}
+                  setCartSize={setCartSize}
+                  formatPrice={formatPrice}
+                />
+              ))}
+            </ul>
+            <div className={style.cartFooter}>
+              <div className={style.cartTotalValue}>
+                <p>Total</p>
+                <span>{formatPrice(cartTotal())}</span>
+              </div>
+              <button
+                onClick={() => removeAllCart()}
+                className={`${style.removeAllCartButton} button bold`}
+              >
+                Remover todos
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
-      <ul>
-        {cart.map((cartProduct) => (
-          <CartProduct
-            key={cartProduct.id}
-            cartProduct={cartProduct}
-            cart={cart}
-            setCart={setCart}
-            cartSize={cartSize}
-            setCartSize={setCartSize}
-            formatPrice={formatPrice}
-          />
-        ))}
-      </ul>
-      <div>
-        <p>Total</p>
-        <span>{formatPrice(cartTotal())}</span>
-      </div>
-      <button onClick={() => removeAllCart()}>Remover todos</button>
     </>
   );
 };

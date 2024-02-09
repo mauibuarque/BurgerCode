@@ -21,11 +21,18 @@
   .cart {
     position: relative;
 
-    img {
-      cursor: pointer;
+    .cartButton {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      width: 1.5rem;
+
+      border: none;
+      background-color: var(--white);
     }
 
-    span {
+    .cartSizeValue {
       display: flex;
       justify-content: center;
       align-items: center;
