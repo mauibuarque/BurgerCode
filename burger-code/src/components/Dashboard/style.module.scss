@@ -1,3 +1,15 @@
+.resultSearch {
+  margin-top: 1.25rem;
+
+  color: var(--color-primary);
+
+  font-size: 1.2rem;
+}
+
+.hideResultSearch {
+  display: none;
+}
+
 .productsList {
   display: flex;
   flex-direction: column;

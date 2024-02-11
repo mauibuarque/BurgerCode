@@ -1,29 +1,32 @@
 import style from "./style.module.scss";
 
-import { useEffect, useState } from "react";
-
-import burgerAPI from "../../services/api";
-
 import ProductCard from "../ProductCard";
 
-const Dashboard = ({ cart, setCart, cartSize, setCartSize, formatPrice }) => {
-  const [products, setProducts] = useState([]);
-
-  const getProducts = async () => {
-    const { data } = await burgerAPI.get("/products");
-
-    setProducts(data);
-  };
-
-  useEffect(() => {
-    getProducts();
-  }, []);
-
+const Dashboard = ({
+  products,
+  filterProducts,
+  searchValue,
+  staticSearchValue,
+  cart,
+  setCart,
+  cartSize,
+  setCartSize,
+  formatPrice,
+}) => {
   return (
     <>
       <section className="container">
+        <p
+          className={
+            filterProducts !== products
+              ? `${style.resultSearch} semibold`
+              : style.hideResultSearch
+          }
+        >
+          Resultados para: "{staticSearchValue}"
+        </p>
         <ul className={style.productsList}>
-          {products.map((product) => (
+          {filterProducts.map((product) => (
             <ProductCard
               key={product.id}
               product={product}
