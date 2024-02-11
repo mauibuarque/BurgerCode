@@ -43,12 +43,20 @@ const Header = ({
             <span className={style.cartSizeValue}>{cartSize}</span>
           </div>
         </div>
-        <form onSubmit={(e) => searchProduct(e)}>
-          <input type="text" value={searchValue} onChange={(e) => setSearchValue(e.target.value)} />
-          <button type="submit">
-            <img src={searchImg} alt="Pesquisar" />
-          </button>
-        </form>
+        <div className="container">
+          <form onSubmit={(e) => searchProduct(e)} className={style.searchForm}>
+            <input
+              type="text"
+              value={searchValue}
+              placeholder="Digite aqui..."
+              onChange={(e) => setSearchValue(e.target.value)}
+              className={`${style.searchInput} semibold`}
+            />
+            <button type="submit" className={`${style.searchButton} button`}>
+              <img src={searchImg} alt="Pesquisar" />
+            </button>
+          </form>
+        </div>
       </header>
     </>
   );
