@@ -7,10 +7,7 @@ import Dashboard from "../Dashboard";
 import Cart from "../Cart";
 
 const HomePage = () => {
-  const getProductsLocalStorage =
-    JSON.parse(localStorage.getItem("products")) || [];
-
-  const [products, setProducts] = useState(getProductsLocalStorage);
+  const [products, setProducts] = useState([]);
 
   const [filterProducts, setFilterProducts] = useState([]);
   const [searchValue, setSearchValue] = useState("");
@@ -61,10 +58,6 @@ const HomePage = () => {
   useEffect(() => {
     localStorage.setItem("modalCart", JSON.stringify(modalCart));
   }, [modalCart]);
-
-  useEffect(() => {
-    localStorage.setItem("products", JSON.stringify(products));
-  }, [products]);
 
   return (
     <>
