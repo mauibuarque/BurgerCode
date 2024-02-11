@@ -7,15 +7,21 @@ import Dashboard from "../Dashboard";
 import Cart from "../Cart";
 
 const HomePage = () => {
-  const [products, setProducts] = useState([]);
+  const getProductsLocalStorage =
+    JSON.parse(localStorage.getItem("products")) || [];
+
+  const [products, setProducts] = useState(getProductsLocalStorage);
 
   const [filterProducts, setFilterProducts] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [staticSearchValue, setStaticSearchValue] = useState("");
 
-  const [cart, setCart] = useState([]);
-  const [cartSize, setCartSize] = useState(0);
-  const [modalCart, setModalCart] = useState(false);
+  const getCartList = JSON.parse(localStorage.getItem("cartList")) || [];
+  const getModalCart = JSON.parse(localStorage.getItem("modalCart")) || false;
+
+  const [cart, setCart] = useState(getCartList);
+  const [cartSize, setCartSize] = useState(getCartList.length);
+  const [modalCart, setModalCart] = useState(getModalCart);
 
   const getProducts = async () => {
     const { data } = await burgerAPI.get("/products");
@@ -23,10 +29,6 @@ const HomePage = () => {
     setProducts(data);
     setFilterProducts(data);
   };
-
-  useEffect(() => {
-    getProducts();
-  }, []);
 
   const searchProduct = (e) => {
     e.preventDefault();
@@ -47,6 +49,22 @@ const HomePage = () => {
 
     return price.toLocaleString(price, options);
   };
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("cartList", JSON.stringify(cart));
+  }, [cart]);
+
+  useEffect(() => {
+    localStorage.setItem("modalCart", JSON.stringify(modalCart));
+  }, [modalCart]);
+
+  useEffect(() => {
+    localStorage.setItem("products", JSON.stringify(products));
+  }, [products]);
 
   return (
     <>
