@@ -32,7 +32,7 @@ const Header = ({
             onClick={() => ResetSearchValue()}
             className={`${style.title} bold`}
           >
-            Burguer<span>Code</span>
+            Burger<span>Code</span>
           </h1>
           <div className={style.cart}>
             <button className={`${style.cartButton} button`}>
