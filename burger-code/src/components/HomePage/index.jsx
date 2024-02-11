@@ -9,13 +9,13 @@ import Cart from "../Cart";
 const HomePage = () => {
   const [products, setProducts] = useState([]);
 
-  const [cart, setCart] = useState([]);
-  const [cartSize, setCartSize] = useState(0);
-  const [modalCart, setModalCart] = useState(false);
-
   const [filterProducts, setFilterProducts] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [staticSearchValue, setStaticSearchValue] = useState("");
+
+  const [cart, setCart] = useState([]);
+  const [cartSize, setCartSize] = useState(0);
+  const [modalCart, setModalCart] = useState(false);
 
   const getProducts = async () => {
     const { data } = await burgerAPI.get("/products");
@@ -54,6 +54,7 @@ const HomePage = () => {
         products={products}
         searchValue={searchValue}
         setSearchValue={setSearchValue}
+        setStaticSearchValue={setStaticSearchValue}
         setFilterProducts={setFilterProducts}
         searchProduct={searchProduct}
         cartSize={cartSize}
@@ -61,7 +62,6 @@ const HomePage = () => {
         setModalCart={setModalCart}
       />
       <Dashboard
-        products={products}
         filterProducts={filterProducts}
         searchValue={searchValue}
         staticSearchValue={staticSearchValue}

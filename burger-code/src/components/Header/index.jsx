@@ -9,12 +9,14 @@ const Header = ({
   setSearchValue,
   setFilterProducts,
   searchProduct,
+  setStaticSearchValue,
   cartSize,
   modalCart,
   setModalCart,
 }) => {
   const ResetSearchValue = () => {
     setSearchValue("");
+    setStaticSearchValue("");
     setFilterProducts(products);
   };
 

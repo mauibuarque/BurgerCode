@@ -3,9 +3,7 @@ import style from "./style.module.scss";
 import ProductCard from "../ProductCard";
 
 const Dashboard = ({
-  products,
   filterProducts,
-  searchValue,
   staticSearchValue,
   cart,
   setCart,
@@ -18,7 +16,7 @@ const Dashboard = ({
       <section className="container">
         <p
           className={
-            filterProducts !== products
+            staticSearchValue.length > 0
               ? `${style.resultSearch} semibold`
               : style.hideResultSearch
           }
