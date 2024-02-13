@@ -29,7 +29,7 @@ const Cart = ({
   return (
     <>
       <div className={`${style.overlayCartModal} container`}>
-        <div className={style.cartModal}>
+        <div role="dialog" className={style.cartModal}>
           <div className={style.cartHeader}>
             <h1 className="bold">Carrinho de compras</h1>
             <button
