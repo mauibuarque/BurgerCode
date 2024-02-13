@@ -32,7 +32,7 @@ A estrutura do código é modularizada e organizada, facilitando a manutenção 
 
 ## Como Acessar
 
-1. Acesse o link: https://burger-code.vercel.app/
+1. Acesse o link: https://burger-code-mauibuarque.vercel.app
 
 2. Para executar a aplicação localmente, clone este repositório.
 
