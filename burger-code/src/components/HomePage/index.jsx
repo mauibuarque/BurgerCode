@@ -2,9 +2,7 @@ import { useEffect, useState } from "react";
 
 import burgerAPI from "../../services/api";
 
-import Header from "../Header";
-import Dashboard from "../Dashboard";
-import Cart from "../Cart";
+import { Header, Dashboard, Cart } from "../index";
 
 const HomePage = () => {
   const [products, setProducts] = useState([]);

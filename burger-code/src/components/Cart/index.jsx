@@ -1,8 +1,8 @@
 import style from "./style.module.scss";
 
-import CartProduct from "../CartProduct";
+import { CartProduct } from "../index";
 
-import closeImg from "../../assets/close.svg";
+import { closeImg } from "../../assets";
 
 const Cart = ({
   modalCart,

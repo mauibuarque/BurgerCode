@@ -1,6 +1,6 @@
 import style from "./style.module.scss";
 
-import ProductCard from "../ProductCard";
+import { ProductCard } from "../index";
 
 const Dashboard = ({
   filterProducts,

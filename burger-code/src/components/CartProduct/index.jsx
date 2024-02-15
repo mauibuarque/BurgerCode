@@ -1,6 +1,6 @@
 import style from "./style.module.scss";
 
-import trashImg from "../../assets/trash.svg";
+import { trashImg } from "../../assets";
 
 const CartProduct = ({
   cartProduct,

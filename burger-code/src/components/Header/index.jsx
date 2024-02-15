@@ -1,7 +1,6 @@
 import style from "./style.module.scss";
 
-import searchImg from "../../assets/search.svg";
-import cartImg from "../../assets/cart.svg";
+import { searchImg, cartImg } from "../../assets";
 
 const Header = ({
   products,
