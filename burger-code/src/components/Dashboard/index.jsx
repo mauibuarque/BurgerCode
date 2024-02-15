@@ -14,15 +14,27 @@ const Dashboard = ({
   return (
     <>
       <section className="container">
-        <p
-          className={
-            staticSearchValue.length > 0
-              ? `${style.resultSearch} semibold`
-              : style.hideResultSearch
-          }
-        >
-          Resultados para: "{staticSearchValue}"
-        </p>
+        {filterProducts.length > 0 ? (
+          <p
+            className={
+              staticSearchValue.length > 0
+                ? `${style.resultSearch} semibold`
+                : style.hideResultSearch
+            }
+          >
+            Resultados para: "{staticSearchValue}"
+          </p>
+        ) : (
+          <p
+            className={
+              staticSearchValue.length > 0
+                ? `${style.resultSearch} semibold`
+                : style.hideResultSearch
+            }
+          >
+            Nenhum resultado encontrado para: "{staticSearchValue}"
+          </p>
+        )}
         <ul className={style.productsList}>
           {filterProducts.map((product) => (
             <ProductCard
